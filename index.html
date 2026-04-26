@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MARIUS' HOMEPAGE !!! :)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+ margin: 0;
+ padding: 0;
+ background-color: #000080;
+ background-image:
+ radial-gradient(circle, #ffff00 1px, transparent 1px),
+ radial-gradient(circle, #ff00ff 1px, transparent 1px);
+ background-size: 30px 30px, 45px 45px;
+ background-position: 0 0, 15px 15px;
+ font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+ color: #ffffff;
+ min-height: 100vh;
+}
+
+/* MARQUEE BAR */
+.marquee-bar {
+ position: sticky;
+ top: 0;
+ z-index: 100;
+ background: #ff0000;
+ color: #ffff00;
+ font-size: 14px;
+ font-weight: 700;
+ padding: 4px 0;
+ overflow: hidden;
+ white-space: nowrap;
+ border-top: 3px solid #ffff00;
+ border-bottom: 3px solid #ffff00;
+}
+.marquee-inner {
+ display: inline-block;
+ animation: marquee 18s linear infinite;
+}
+@keyframes marquee {
+ 0% { transform: translateX(100vw); }
+ 100% { transform: translateX(-100%); }
+}
+
+/* MAIN LAYOUT */
+.page {
+ max-width: 780px;
+ margin: 0 auto;
+ padding: 16px;
+}
+
+/* HEADER */
+.header-box {
+ background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00, #ff0066);
+ background-size: 400% 400%;
+ animation: rainbow 4s ease infinite;
+ border: 4px solid #ffffff;
+ padding: 20px;
+ text-align: center;
+ margin-bottom: 12px;
+ position: relative;
+}
+@keyframes rainbow {
+ 0% { background-position: 0% 50%; }
+ 50% { background-position: 100% 50%; }
+ 100% { background-position: 0% 50%; }
+}
+.site-title {
+ font-size: 42px;
+ font-weight: 700;
+ color: #ffffff;
+ text-shadow:
+ 3px 3px 0 #ff0000,
+ 6px 6px 0 #000000;
+ letter-spacing: 2px;
+ margin: 0 0 8px;
+ line-height: 1.1;
+}
+.site-subtitle {
+ font-size: 16px;
+ color: #000000;
+ font-weight: 700;
+ background: #ffff00;
+ display: inline-block;
+ padding: 2px 10px;
+ border: 2px solid #000;
+ animation: blink 1s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* DECORATIVE STARS */
+.star { display: inline-block; animation: spin 3s linear infinite; font-size: 20px; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* NAV */
+.nav-box {
+ background: #00aa00;
+ border: 3px solid #ffffff;
+ padding: 8px 12px;
+ margin-bottom: 12px;
+ display: flex;
+ gap: 8px;
+ flex-wrap: wrap;
+ align-items: center;
+}
+.nav-box a {
+ background: #ffff00;
+ color: #000000;
+ font-weight: 700;
+ font-size: 13px;
+ padding: 4px 10px;
+ border: 2px solid #000000;
+ text-decoration: none;
+ display: inline-block;
+ font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+}
+.nav-box a:hover {
+ background: #ff0000;
+ color: #ffffff;
+}
+.nav-label { font-weight: 700; font-size: 13px; color: #ffff00; }
+
+/* TWO-COLUMN LAYOUT */
+.two-col {
+ display: grid;
+ grid-template-columns: 1fr 260px;
+ gap: 12px;
+ margin-bottom: 12px;
+}
+@media (max-width: 600px) {
+ .two-col { grid-template-columns: 1fr; }
+}
+
+/* CONTENT BOXES */
+.box {
+ border: 3px solid;
+ margin-bottom: 12px;
+}
+.box-title {
+ font-weight: 700;
+ font-size: 14px;
+ padding: 5px 10px;
+ border-bottom: 2px solid currentColor;
+ text-transform: uppercase;
+ letter-spacing: 1px;
+}
+.box-body {
+ padding: 10px 12px;
+ font-size: 13px;
+ line-height: 1.7;
+}
+
+/* INDIVIDUAL BOX COLORS */
+.box-blue { border-color: #00ffff; color: #ffffff; background: #000066; }
+.box-blue .box-title { background: #00ffff; color: #000066; }
+
+.box-pink { border-color: #ff69b4; color: #ffffff; background: #440033; }
+.box-pink .box-title { background: #ff69b4; color: #000000; }
+
+.box-green { border-color: #00ff00; color: #ffffff; background: #003300; }
+.box-green .box-title { background: #00ff00; color: #000000; }
+
+.box-yellow{ border-color: #ffff00; color: #ffffff; background: #333300; }
+.box-yellow .box-title{ background: #ffff00; color: #000000; }
+
+.box-orange{ border-color: #ff6600; color: #ffffff; background: #331100; }
+.box-orange .box-title{ background: #ff6600; color: #ffffff; }
+
+.box-purple{ border-color: #cc00ff; color: #ffffff; background: #220033; }
+.box-purple .box-title{ background: #cc00ff; color: #ffffff; }
+
+/* ABOUT BOX */
+.about-text a { color: #ffff00; }
+.about-photo {
+ width: 80px; height: 80px;
+ background: #ff69b4;
+ border: 3px solid #ffffff;
+ display: flex; align-items: center; justify-content: center;
+ font-size: 36px;
+ float: right;
+ margin: 0 0 8px 12px;
+}
+
+/* LINKS LIST */
+.links-list { list-style: none; margin: 0; padding: 0; }
+.links-list li { padding: 3px 0; border-bottom: 1px dashed rgba(255,255,255,0.3); }
+.links-list li:last-child { border-bottom: none; }
+.links-list a { color: #00ffff; text-decoration: none; font-size: 13px; }
+.links-list a::before { content: "→ "; }
+.links-list a:hover { color: #ffff00; text-decoration: underline; }
+
+/* GUESTBOOK */
+.guestbook-entry {
+ border-left: 3px solid #ff69b4;
+ padding: 6px 10px;
+ margin-bottom: 8px;
+ background: rgba(255,255,255,0.05);
+ font-size: 12px;
+}
+.gb-name { font-weight: 700; color: #ffff00; }
+.gb-date { opacity: 0.5; font-size: 11px; }
+.gb-msg { margin-top: 2px; }
+
+.sign-btn {
+ background: #ff0000;
+ color: #ffff00;
+ border: 2px solid #ffff00;
+ padding: 6px 14px;
+ font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+ font-weight: 700;
+ font-size: 13px;
+ cursor: pointer;
+ width: 100%;
+ margin-top: 6px;
+}
+.sign-btn:hover { background: #ffff00; color: #ff0000; }
+
+/* GUESTBOOK FORM */
+.gb-form { display: none; margin-top: 8px; }
+.gb-form input, .gb-form textarea {
+ width: 100%;
+ background: #000033;
+ border: 2px solid #00ffff;
+ color: #ffffff;
+ padding: 5px 8px;
+ font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+ font-size: 12px;
+ margin-bottom: 6px;
+ display: block;
+ resize: none;
+}
+.gb-form textarea { height: 60px; }
+.gb-form .submit-btn {
+ background: #00ff00;
+ color: #000000;
+ border: 2px solid #ffffff;
+ padding: 5px 12px;
+ font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+ font-weight: 700;
+ font-size: 12px;
+ cursor: pointer;
+}
+
+/* COUNTER */
+.counter-box {
+ text-align: center;
+ padding: 8px;
+ font-size: 12px;
+}
+.counter-digits {
+ font-family: 'Courier New', monospace;
+ font-size: 28px;
+ font-weight: 700;
+ color: #00ff00;
+ letter-spacing: 4px;
+ background: #000000;
+ border: 2px inset #333;
+ padding: 4px 12px;
+ display: inline-block;
+ margin: 4px 0;
+}
+
+/* UNDER CONSTRUCTION */
+.under-construction {
+ background: repeating-linear-gradient(
+ 45deg,
+ #ffff00 0px, #ffff00 20px,
+ #000000 20px, #000000 40px
+ );
+ border: 3px solid #ffffff;
+ padding: 10px;
+ text-align: center;
+ margin-bottom: 12px;
+}
+.uc-inner {
+ background: #000000;
+ color: #ffff00;
+ font-weight: 700;
+ font-size: 13px;
+ padding: 8px 16px;
+ display: inline-block;
+ border: 2px solid #ffff00;
+}
+
+/* INTERESTS */
+.interest-tags {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 6px;
+ margin-top: 4px;
+}
+.itag {
+ display: inline-block;
+ padding: 3px 8px;
+ font-size: 12px;
+ font-weight: 700;
+ border: 2px solid;
+}
+.itag:nth-child(1) { background: #ff0066; border-color: #ff99bb; color: #fff; }
+.itag:nth-child(2) { background: #0066ff; border-color: #99ccff; color: #fff; }
+.itag:nth-child(3) { background: #00aa00; border-color: #66ff66; color: #fff; }
+.itag:nth-child(4) { background: #cc6600; border-color: #ffcc00; color: #fff; }
+.itag:nth-child(5) { background: #9900cc; border-color: #cc66ff; color: #fff; }
+.itag:nth-child(6) { background: #cc0000; border-color: #ff6666; color: #fff; }
+.itag:nth-child(7) { background: #006666; border-color: #00ffff; color: #fff; }
+
+/* NOW PLAYING */
+.now-playing {
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ font-size: 12px;
+}
+.vinyl {
+ width: 36px; height: 36px;
+ border-radius: 50%;
+ background: radial-gradient(circle at 50% 50%, #555 20%, #111 20%, #111 30%, #333 30%, #333 45%, #111 45%, #111 55%, #333 55%, #333 70%, #111 70%);
+ border: 2px solid #666;
+ animation: rotateSlow 3s linear infinite;
+ flex-shrink: 0;
+}
+@keyframes rotateSlow { 100% { transform: rotate(360deg); } }
+.np-info { font-size: 11px; line-height: 1.5; }
+.np-title { color: #ffff00; font-weight: 700; }
+.np-bar { height: 4px; background: #333; margin-top: 4px; border: 1px solid #666; }
+.np-prog { height: 100%; width: 40%; background: #00ff00; animation: progress 8s linear infinite; }
+@keyframes progress { 100% { width: 100%; } }
+
+/* BLOG ENTRIES */
+.blog-entry {
+ border-bottom: 1px dashed rgba(255,255,255,0.3);
+ padding: 8px 0;
+ font-size: 13px;
+}
+.blog-entry:last-child { border-bottom: none; }
+.blog-title { color: #ffff00; font-weight: 700; }
+.blog-date { font-size: 11px; opacity: 0.5; }
+.blog-preview { font-size: 12px; margin-top: 2px; opacity: 0.8; }
+
+/* PIXEL ART */
+.pixel-decoration {
+ font-size: 10px;
+ line-height: 1;
+ white-space: pre;
+ color: #00ff00;
+ opacity: 0.5;
+ font-family: monospace;
+}
+
+/* FOOTER */
+.footer {
+ background: #000000;
+ border: 3px solid #ffff00;
+ padding: 12px;
+ text-align: center;
+ font-size: 12px;
+ margin-top: 12px;
+}
+.footer a { color: #00ffff; }
+.webring {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 10px;
+ margin: 8px 0;
+ font-size: 12px;
+}
+.webring a {
+ background: #333;
+ border: 1px solid #666;
+ padding: 2px 8px;
+ color: #ffffff;
+ text-decoration: none;
+}
+.webring a:hover { background: #ffff00; color: #000; }
+.made-with {
+ margin-top: 8px;
+ opacity: 0.6;
+ font-size: 11px;
+}
+</style>
+</head>
+<body>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+ <span class="marquee-inner">
+ &nbsp;&nbsp;&nbsp; WILLKOMMEN AUF MARIUS' HOMEPAGE !!! &nbsp;&nbsp;&nbsp;
+ BEST VIEWED IN 800x600 &nbsp;&nbsp;&nbsp;
+ BITTE INS GÄSTEBUCH EINTRAGEN !!! &nbsp;&nbsp;&nbsp;
+ IHR BESUCH NR. &nbsp;<span id="marquee-count">004821</span>&nbsp; &nbsp;&nbsp;&nbsp;
+ UNDER CONSTRUCTION &nbsp;&nbsp;&nbsp;
+ MACH DIR EIN SCHÖNES INTERNET &nbsp;&nbsp;&nbsp;
+ </span>
+</div>
+
+<div class="page">
+
+ <!-- HEADER -->
+ <div class="header-box">
+ <div style="font-size:22px;margin-bottom:4px;">
+ <span class="star"></span>
+ <span class="star" style="animation-duration:2s;color:#ffff00;"></span>
+ <span class="star" style="animation-duration:4s;color:#ff69b4;"></span>
+ </div>
+ <div class="site-title">MARIUS' HOMEPAGE</div>
+ <div class="site-subtitle"> Marketing • Internet • Leben </div>
+ <div style="margin-top:8px;font-size:12px;color:#000080;font-weight:700;background:#ffffff;display:inline-block;padding:2px 8px;">
+ zuletzt aktualisiert: 25.04.2026
+ </div>
+ </div>
+
+ <!-- NAV -->
+ <div class="nav-box">
+ <span class="nav-label"> NAVIGATE: </span>
+ <a href="#about">[ über mich ]</a>
+ <a href="#blog">[ mein blog ]</a>
+ <a href="#links">[ cool links ]</a>
+ <a href="#gaestebuch">[ gästebuch ]</a>
+ <a href="mailto:hallo@marius.de">[ kontakt ]</a>
+ </div>
+
+ <!-- UNDER CONSTRUCTION -->
+ <div class="under-construction">
+ <div class="uc-inner"> DIESE SEITE IST NOCH IM AUFBAU — DANKE FÜR DEINE GEDULD!!! </div>
+ </div>
+
+ <!-- TWO COLUMN -->
+ <div class="two-col">
+
+ <!-- LEFT COLUMN -->
+ <div>
+
+ <!-- ABOUT -->
+ <div class="box box-blue" id="about">
+ <div class="box-title"> Über Mich !!!</div>
+ <div class="box-body about-text">
+ <div class="about-photo"></div>
+ <p>HALLO und HERZLICH WILLKOMMEN auf meiner persönlichen Homepage!!!</p>
+ <p>Ich bin <strong style="color:#ffff00;">MARIUS</strong>, wohne irgendwo in Deutschland und arbeite im <strong style="color:#00ffff;">Marketing</strong>. Ich liebe das Internet und alles was damit zu tun hat.</p>
+ <p>Diese Seite ist mein kleines Stück vom World Wide Web. Schau dich um, trag dich ins Gästebuch ein und komm bald wieder!!!</p>
+ <div class="interest-tags">
+ <span class="itag">Marketing</span>
+ <span class="itag">Internet</span>
+ <span class="itag">Musik</span>
+ <span class="itag">Essen</span>
+ <span class="itag">Reisen</span>
+ <span class="itag">Fotografie</span>
+ <span class="itag">Memes</span>
+ </div>
+ </div>
+ </div>
+
+ <!-- BLOG -->
+ <div class="box box-pink" id="blog">
+ <div class="box-title"> Mein Blog</div>
+ <div class="box-body">
+ <div class="blog-entry">
+ <div class="blog-title"> Warum ich meine eigene Homepage gebaut habe</div>
+ <div class="blog-date">25.04.2026</div>
+ <div class="blog-preview">Social media ist öde. Hier bin ich der Chef!!!</div>
+ </div>
+ <div class="blog-entry">
+ <div class="blog-title"> Die beste Pizza in meiner Stadt (Ranking)</div>
+ <div class="blog-date">18.04.2026</div>
+ <div class="blog-preview">Spoiler: Es ist nicht die, die alle kennen...</div>
+ </div>
+ <div class="blog-entry">
+ <div class="blog-title"> Was Marketing wirklich bedeutet</div>
+ <div class="blog-date">10.04.2026</div>
+ <div class="blog-preview">Meine ehrliche Meinung nach 5 Jahren im Job.</div>
+ </div>
+ <div class="blog-entry">
+ <div class="blog-title"> Lieblingswebsites aus dem Jahr 2003</div>
+ <div class="blog-date">02.04.2026</div>
+ <div class="blog-preview">Eine nostalgische Reise ins alte Internet </div>
+ </div>
+ <div style="margin-top:8px;font-size:12px;opacity:0.7;">→ <a href="#" style="color:#ff69b4;">alle einträge anzeigen (12)</a></div>
+ </div>
+ </div>
+
+ <!-- NOW PLAYING -->
+ <div class="box box-purple">
+ <div class="box-title"> Gerade läuft bei mir...</div>
+ <div class="box-body">
+ <div class="now-playing">
+ <div class="vinyl"></div>
+ <div class="np-info">
+ <div class="np-title">Daft Punk — Get Lucky</div>
+ <div style="opacity:0.6;">Random Access Memories (2013)</div>
+ <div class="np-bar"><div class="np-prog"></div></div>
+ </div>
+ </div>
+ <div style="margin-top:10px;font-size:12px;opacity:0.7;">letzte woche gehört:</div>
+ <ul style="font-size:12px;margin:4px 0 0 16px;opacity:0.8;line-height:1.8;">
+ <li>Stromae — Alors On Danse</li>
+ <li>Kraftwerk — Autobahn</li>
+ <li>The Knife — Heartbeats</li>
+ </ul>
+ </div>
+ </div>
+
+ </div>
+
+ <!-- RIGHT COLUMN (SIDEBAR) -->
+ <div>
+
+ <!-- BESUCHER COUNTER -->
+ <div class="box box-green">
+ <div class="box-title"> Besucherzähler</div>
+ <div class="box-body counter-box">
+ <div style="opacity:0.7;font-size:12px;">Du bist Besucher Nr.</div>
+ <div class="counter-digits" id="counter">004822</div>
+ <div style="opacity:0.5;font-size:11px;">seit dem 14. März 2026</div>
+ </div>
+ </div>
+
+ <!-- STECKBRIEF -->
+ <div class="box box-orange">
+ <div class="box-title"> Steckbrief</div>
+ <div class="box-body" style="font-size:12px;line-height:2;">
+ <div><strong style="color:#ffcc00;">Name:</strong> Marius</div>
+ <div><strong style="color:#ffcc00;">Job:</strong> Marketing</div>
+ <div><strong style="color:#ffcc00;">Motto:</strong> YOLO (aber geplant)</div>
+ <div><strong style="color:#ffcc00;">Online seit:</strong> 1998</div>
+ <div><strong style="color:#ffcc00;">Status:</strong> <span style="color:#00ff00;animation:blink 1s step-end infinite;display:inline-block;">● ONLINE</span></div>
+ <div><strong style="color:#ffcc00;">AIM:</strong> marius1337</div>
+ <div><strong style="color:#ffcc00;">ICQ:</strong> 4892****</div>
+ </div>
+ </div>
+
+ <!-- LINKS -->
+ <div class="box box-blue" id="links">
+ <div class="box-title"> Cool Links</div>
+ <div class="box-body">
+ <ul class="links-list">
+ <li><a href="#">Wikipedia DE</a></li>
+ <li><a href="#">YouTube</a></li>
+ <li><a href="#">Geocities Archive</a></li>
+ <li><a href="#">Netzpolitik.org</a></li>
+ <li><a href="#">Pocketgamer.de</a></li>
+ <li><a href="#">The Verge</a></li>
+ <li><a href="#">Mein Lieblingsrezept</a></li>
+ </ul>
+ </div>
+ </div>
+
+ <!-- WEBRING -->
+ <div class="box box-yellow">
+ <div class="box-title"> Webring</div>
+ <div class="box-body" style="text-align:center;font-size:12px;">
+ <div style="margin-bottom:6px;color:#ffcc00;">Persönliche Homepages 2026</div>
+ <div class="webring">
+ <a href="#">← zurück</a>
+ <span style="font-size:11px;opacity:0.7;">du bist hier</span>
+ <a href="#">vor →</a>
+ </div>
+ <div style="font-size:11px;opacity:0.6;margin-top:4px;"><a href="#" style="color:#ffff00;">alle mitglieder anzeigen</a></div>
+ </div>
+ </div>
+
+ <!-- PIXEL DECORATION -->
+ <div class="box box-green">
+ <div class="box-title"> mein haustier</div>
+ <div class="box-body" style="text-align:center;">
+ <pre class="pixel-decoration" style="opacity:1;color:#fff;font-size:13px;">
+ /\ /\
+ ( o o )
+ =( Y )=
+ ) (
+ (_)-(_)</pre>
+ <div style="font-size:12px;margin-top:4px;color:#ffff00;">das ist <strong>Chips</strong> </div>
+ <div style="font-size:11px;opacity:0.6;">geburtsjahr: 2019</div>
+ </div>
+ </div>
+
+ </div>
+ </div>
+
+ <!-- GÄSTEBUCH -->
+ <div class="box box-pink" id="gaestebuch">
+ <div class="box-title"> Gästebuch — trag dich ein!!!</div>
+ <div class="box-body">
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+ <div>
+ <div class="guestbook-entry">
+ <div><span class="gb-name">Sandra_K</span> <span class="gb-date">24.04.2026</span></div>
+ <div class="gb-msg">Super tolle Seite!!! Weiter so Marius </div>
+ </div>
+ <div class="guestbook-entry">
+ <div><span class="gb-name">timo_rules</span> <span class="gb-date">22.04.2026</span></div>
+ <div class="gb-msg">Echt krank dass du noch ne eigene Seite hast lol. Respec!</div>
+ </div>
+ <div class="guestbook-entry">
+ <div><span class="gb-name">Internetfreund_98</span> <span class="gb-date">19.04.2026</span></div>
+ <div class="gb-msg">Habe diese Seite über den Webring gefunden. Sehr schön! Besuche auch meine Seite :)</div>
+ </div>
+ </div>
+ <div>
+ <div class="guestbook-entry">
+ <div><span class="gb-name">marketing_girlie</span> <span class="gb-date">15.04.2026</span></div>
+ <div class="gb-msg">Dein Blog-Eintrag über Marketing hat mir aus der Seele gesprochen!!!</div>
+ </div>
+ <div class="guestbook-entry">
+ <div><span class="gb-name">Rainer_Zufall</span> <span class="gb-date">10.04.2026</span></div>
+ <div class="gb-msg">Zufällig hier gelandet und jetzt will ich auch wieder eine eigene Homepage </div>
+ </div>
+ <div>
+ <button class="sign-btn" onclick="document.getElementById('gb-form').style.display='block';this.style.display='none';">
+ Ins Gästebuch eintragen !!!
+ </button>
+ <div class="gb-form" id="gb-form">
+ <input type="text" placeholder="Dein Name / Spitzname">
+ <textarea placeholder="Deine Nachricht..."></textarea>
+ <button class="submit-btn" onclick="addEntry()">Absenden !!!</button>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- FOOTER -->
+ <div class="footer">
+ <div style="color:#ffff00;font-size:14px;font-weight:700;margin-bottom:6px;">
+ MARIUS' HOMEPAGE 
+ </div>
+ <div style="font-size:12px;margin-bottom:8px;">
+ <a href="mailto:hallo@marius.de"> E-Mail schreiben</a>
+ &nbsp;&nbsp;
+ <a href="#top" style="color:#00ff00;">⬆ nach oben</a>
+ &nbsp;&nbsp;
+ <a href="#gaestebuch" style="color:#ff69b4;"> Gästebuch</a>
+ </div>
+ <div style="font-size:11px;color:#ffff00;margin-bottom:6px;">
+ Best viewed in Internet Explorer 6.0 · 800×600 · 56k Modem
+ </div>
+ <div style="display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin:8px 0;">
+ <img src="https://web.archive.org/web/20090830160510/http://www.w3.org/Icons/valid-html401" alt="Valid HTML" style="height:20px;border:1px solid #fff;" onerror="this.style.display='none'">
+ <div style="background:#003366;border:1px solid #6699cc;padding:1px 6px;font-size:10px;color:#ffffff;height:22px;display:flex;align-items:center;">NETSCAPE NOW</div>
+ <div style="background:#cc0000;border:1px solid #ff6666;padding:1px 6px;font-size:10px;color:#ffffff;height:22px;display:flex;align-items:center;">GEOCITIES</div>
+ <div style="background:#006600;border:1px solid #00ff00;padding:1px 6px;font-size:10px;color:#ffffff;height:22px;display:flex;align-items:center;"> WEB FRIENDLY</div>
+ </div>
+ <div class="made-with">
+ Diese Seite wurde mit und viel zu viel Kaffee gemacht.<br>
+ © 2026 Marius. Alle Rechte vorbehalten (oder so).
+ </div>
+ </div>
+
+</div>
+
+<script>
+ // animated counter
+ let count = 4822;
+ function updateCounter() {
+ setTimeout(() => {
+ count++;
+ const el = document.getElementById('counter');
+ if (el) el.textContent = String(count).padStart(6, '0');
+ const el2 = document.getElementById('marquee-count');
+ if (el2) el2.textContent = String(count - 1).padStart(6, '0');
+ }, 3000);
+ }
+ updateCounter();
+
+ // guestbook
+ function addEntry() {
+ const form = document.getElementById('gb-form');
+ const name = form.querySelector('input').value.trim() || 'Anonym';
+ const msg = form.querySelector('textarea').value.trim();
+ if (!msg) return;
+ const entry = document.createElement('div');
+ entry.className = 'guestbook-entry';
+ const today = new Date();
+ const dateStr = today.toLocaleDateString('de-DE');
+ entry.innerHTML = `<div><span class="gb-name">${name}</span> <span class="gb-date">${dateStr}</span></div><div class="gb-msg">${msg}</div>`;
+ form.parentElement.insertBefore(entry, form.previousElementSibling.nextSibling);
+ form.querySelector('input').value = '';
+ form.querySelector('textarea').value = '';
+ form.style.display = 'none';
+ document.querySelector('.sign-btn') && (document.querySelector('.sign-btn').style.display = 'block');
+ alert('Danke für deinen Eintrag!!! ');
+ }
+
+ // Tweaks
+ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+ "bgColor": "#000080",
+ "headerAnim": true
+ }/*EDITMODE-END*/;
+ let tweaks = { ...TWEAK_DEFAULTS };
+ function applyTweaks() {
+ document.body.style.backgroundColor = tweaks.bgColor;
+ const hdr = document.querySelector('.header-box');
+ if (hdr) hdr.style.animationPlayState = tweaks.headerAnim ? 'running' : 'paused';
+ }
+ const panel = document.createElement('div');
+ panel.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:9999;background:#000080;border:3px solid #ffff00;padding:0;width:220px;font-family:Comic Sans MS,cursive;font-size:12px;color:#fff;display:none;';
+ panel.innerHTML = `<div style="background:#ffff00;color:#000;padding:5px 10px;font-weight:700;display:flex;justify-content:space-between;align-items:center;">TWEAKS <span id="tw-x" style="cursor:pointer;">[ X ]</span></div><div style="padding:10px;display:flex;flex-direction:column;gap:8px;"><label>Hintergrundfarbe<br><input type="color" id="tw-bg" style="width:100%;height:28px;border:2px solid #ffff00;background:none;cursor:pointer;"></label><label style="display:flex;justify-content:space-between;">Header-Animation <input type="checkbox" id="tw-anim"></label></div>`;
+ document.body.appendChild(panel);
+ const syncUI = () => { panel.querySelector('#tw-bg').value = tweaks.bgColor; panel.querySelector('#tw-anim').checked = tweaks.headerAnim; };
+ panel.querySelector('#tw-bg').addEventListener('input', e => { tweaks.bgColor = e.target.value; applyTweaks(); window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { bgColor: tweaks.bgColor } }, '*'); });
+ panel.querySelector('#tw-anim').addEventListener('change', e => { tweaks.headerAnim = e.target.checked; applyTweaks(); window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { headerAnim: tweaks.headerAnim } }, '*'); });
+ panel.querySelector('#tw-x').addEventListener('click', () => { panel.style.display = 'none'; window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*'); });
+ window.addEventListener('message', e => {
+ if (e.data?.type === '__activate_edit_mode') { panel.style.display = 'block'; syncUI(); }
+ else if (e.data?.type === '__deactivate_edit_mode') { panel.style.display = 'none'; }
+ });
+ window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+ applyTweaks();
+</script>
+</body>
+</html>
